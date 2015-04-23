@@ -60,6 +60,6 @@ if __name__ == "__main__":
     app = web.application(urls, globals())
     app.run()
 
-#http://192.168.1.42:8080/state
-#http://192.168.1.42:8080/switch?direction=on
-#http://192.168.1.42:8080/switch?direction=off
+#http://192.168.1.42:4242/state
+#http://192.168.1.42:4242/switch?direction=on
+#http://192.168.1.42:4242/switch?direction=off
