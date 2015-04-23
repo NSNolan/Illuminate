@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		BF014F8E1AE8E2F600A2DAFD /* Illuminate_Server */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = BF014F911AE8E2F600A2DAFD /* Build configuration list for PBXAggregateTarget "Illuminate_Server" */;
+			buildPhases = (
+				BF014F9A1AE8E39B00A2DAFD /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Illuminate_Server;
+			productName = Illuminate_Server;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		BF6A06951AE8CDD1005EE07D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A06941AE8CDD1005EE07D /* AppDelegate.m */; };
 		BF6A06971AE8CDD1005EE07D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A06961AE8CDD1005EE07D /* main.m */; };
@@ -25,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF014F931AE8E35D00A2DAFD /* templates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = templates; path = Illuminate_Server/templates; sourceTree = "<group>"; };
+		BF014F951AE8E36F00A2DAFD /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = Illuminate_Server/web; sourceTree = "<group>"; };
+		BF014F961AE8E36F00A2DAFD /* web_server.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = web_server.py; path = Illuminate_Server/web_server.py; sourceTree = "<group>"; };
 		BF6A068E1AE8CDD1005EE07D /* Illuminate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Illuminate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6A06921AE8CDD1005EE07D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6A06931AE8CDD1005EE07D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,11 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF014F921AE8E30400A2DAFD /* Illuminate_Server */ = {
+			isa = PBXGroup;
+			children = (
+				BF014F951AE8E36F00A2DAFD /* web */,
+				BF014F931AE8E35D00A2DAFD /* templates */,
+				BF014F961AE8E36F00A2DAFD /* web_server.py */,
+			);
+			name = Illuminate_Server;
+			sourceTree = "<group>";
+		};
 		BF6A06851AE8CDD1005EE07D = {
 			isa = PBXGroup;
 			children = (
 				BF6A06901AE8CDD1005EE07D /* Illuminate */,
 				BF6A06A41AE8CDD1005EE07D /* IlluminateTests */,
+				BF014F921AE8E30400A2DAFD /* Illuminate_Server */,
 				BF6A068F1AE8CDD1005EE07D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,6 +186,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Nolan Astrein";
 				TargetAttributes = {
+					BF014F8E1AE8E2F600A2DAFD = {
+						CreatedOnToolsVersion = 6.3;
+					};
 					BF6A068D1AE8CDD1005EE07D = {
 						CreatedOnToolsVersion = 6.3;
 					};
@@ -182,6 +213,7 @@
 			targets = (
 				BF6A068D1AE8CDD1005EE07D /* Illuminate */,
 				BF6A06A01AE8CDD1005EE07D /* IlluminateTests */,
+				BF014F8E1AE8E2F600A2DAFD /* Illuminate_Server */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +236,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF014F9A1AE8E39B00A2DAFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "python \"$PROJECT_DIR\"/Illuminate_Server/web_server.py 4242";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF6A068A1AE8CDD1005EE07D /* Sources */ = {
@@ -245,6 +293,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF014F8F1AE8E2F600A2DAFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BF014F901AE8E2F600A2DAFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		BF6A06A91AE8CDD1005EE07D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -385,6 +447,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF014F911AE8E2F600A2DAFD /* Build configuration list for PBXAggregateTarget "Illuminate_Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF014F8F1AE8E2F600A2DAFD /* Debug */,
+				BF014F901AE8E2F600A2DAFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		BF6A06891AE8CDD1005EE07D /* Build configuration list for PBXProject "Illuminate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -401,6 +471,7 @@
 				BF6A06AD1AE8CDD1005EE07D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF6A06AE1AE8CDD1005EE07D /* Build configuration list for PBXNativeTarget "IlluminateTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +480,7 @@
 				BF6A06B01AE8CDD1005EE07D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
