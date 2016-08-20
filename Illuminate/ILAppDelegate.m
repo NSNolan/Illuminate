@@ -18,8 +18,7 @@ static const NSString *fail = @"X";
 @property (strong) NSMutableData *responseData;
 @property (strong) NSStatusItem *statusItem;
 @property (strong) NSPopover *ipAddressPopover;
-@property (strong) NSString *ipAddress;
-@property (assign) int port;
+@property (strong) ILAddressPortViewController *addressPortViewController;
 
 @end
 
@@ -36,12 +35,9 @@ static const NSString *fail = @"X";
     
     self.ipAddressPopover = [[NSPopover alloc] init];
     
-    ILAddressPortViewController *addressPortViewController = [[ILAddressPortViewController alloc] init];
-    addressPortViewController.delegate = self;
-    self.ipAddressPopover.contentViewController = addressPortViewController;
-    
-    self.ipAddress = addressPortViewController.ipAddress;
-    self.port = addressPortViewController.port;
+    self.addressPortViewController = [[ILAddressPortViewController alloc] init];
+    self.addressPortViewController.delegate = self;
+    self.ipAddressPopover.contentViewController = self.addressPortViewController;
     
     [[NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(_getState:) userInfo:nil repeats:YES] fire];
 }
@@ -59,7 +55,7 @@ static const NSString *fail = @"X";
         return;
     }
     
-    NSString *switchRequestString = [NSString stringWithFormat:@"http://%@:%d/switch?direction=", self.ipAddress, self.port];
+    NSString *switchRequestString = [NSString stringWithFormat:@"http://%@:%d/switch?direction=", self.addressPortViewController.ipAddress, self.addressPortViewController.port];
     
     if ([self.statusItem.title isEqualToString:(NSString *)off])
     {
@@ -77,7 +73,7 @@ static const NSString *fail = @"X";
 
 - (void)_getState:(NSTimer *)timer
 {
-    NSString *stateRequestString = [NSString stringWithFormat:@"http://%@:%d/state", self.ipAddress, self.port];
+    NSString *stateRequestString = [NSString stringWithFormat:@"http://%@:%d/state", self.addressPortViewController.ipAddress, self.addressPortViewController.port];
     [self _connectionForRequestString:stateRequestString];
 }
 
@@ -174,12 +170,9 @@ static const NSString *fail = @"X";
 
 #pragma mark - ILAddressPortViewControllerDelegate Methods
 
-- (void)didEnterIpAddress:(NSString *)newIPAddress port:(int)newPort
+- (void)didEnterIpAddressPort
 {
     [self.ipAddressPopover close];
-    
-    self.ipAddress = newIPAddress;
-    self.port = newPort;
     
     [self _getState:nil];
 }

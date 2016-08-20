@@ -95,7 +95,7 @@ static NSString *kPortKey = @"_port";
             self.port = [self.portTextField.stringValue intValue];
             [self writeIPAddressToUserDefaults];
             [self writePortToUserDefaults];
-            [self.delegate didEnterIpAddress:self.ipAddress port:self.port];
+            [self.delegate didEnterIpAddressPort];
         }
         return YES;
     }

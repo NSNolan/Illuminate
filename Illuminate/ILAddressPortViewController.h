@@ -10,7 +10,7 @@
 
 @protocol ILAddressPortViewControllerDelegate <NSObject>
 
-- (void)didEnterIpAddress:(NSString *)newIPAddress port:(int)newPort;
+- (void)didEnterIpAddressPort;
 
 @end
 
