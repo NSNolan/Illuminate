@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ILAppDelegate.h
 //  Illuminate
 //
 //  Created by Nolan Astrein on 4/22/15.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface ILAppDelegate : NSObject <NSApplicationDelegate>
 
 @end
