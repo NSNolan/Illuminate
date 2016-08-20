@@ -57,7 +57,7 @@ static NSString *kPortKey = @"_port";
 
 - (int)readPortFromUserDefaults
 {
-    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:kPortKey] ?: 80;
+    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:kPortKey] ?: 0;
 }
 
 - (void)writePortToUserDefaults
